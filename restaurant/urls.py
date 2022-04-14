@@ -21,10 +21,15 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+    path('summernote/', include('django_summernote.urls')),
     path('admin/', admin.site.urls),
-    path('meals/', include('meals.urls')),
-    path('reserve_table/', include('reservation.urls')),
-    path('blog/', include('blog.urls')),
+    path('meals/', include('meals.urls', namespace='abomealsuts')),
+    path('reserve_table/', include('reservation.urls', namespace='reservation')),
+    path('blog/', include('blog.urls', namespace='blog')),
+    path('abouts/', include('abouts.urls', namespace='aboutus')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('contact/', include('contact.urls', namespace='contact')),
+    path('', include('home.urls', namespace='home')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
