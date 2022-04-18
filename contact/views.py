@@ -5,7 +5,6 @@ from .forms import ContactForm
 from django.http import HttpResponse
 
 
-
 def send_email(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -13,29 +12,24 @@ def send_email(request):
             name = form.cleaned_data['name']
             to_email = form.cleaned_data['email']
             message = form.cleaned_data['message']
-
-
             try:
                 subject = f'Welcome to our restaurant {name}'
-                message = f'Thank you for Contact us {name}\n Your response is been noted \n We will contact you shortly'
+                message = f'Thank you for Contact us {name}\n Your response is been noted \n We will contact you shortly' \
+                          f'Okey we are waiting for you {message}'
                 email_from = settings.EMAIL_HOST_USER
                 recipient_list = [to_email]
-                send_email(subject, message, email_from, recipient_list)
-            
+                send_mail(subject, message, email_from, recipient_list)
             except BadHeaderError:
                 return HttpResponse('invalid data')
-            
+
             return redirect('contact:send_email')
+    else:
+        form = ContactForm()
 
-        else:
-            form = ContactForm()
-
-        context = {
-            'form': form
-        }
-
-        return render(request, '', context)
-
+    context = {
+        'form': form
+    }
+    return render(request, 'contact.html', context)
 
 
 def send_success(request):

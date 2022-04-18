@@ -39,10 +39,10 @@
             <li><a href="{% url 'reservation:reserve_table' %}">Reserve A Table</a></li>
             <li><a href="{% url 'contact:send_email' %}">Contact</a></li>
             <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
-            {% else %} 
+            {% else %}
             <li><a class="nav-link scrollto" href="{% url 'login' %}">Login</a></li>
             <li><a class="nav-link scrollto" href="{% url 'register' %}">Registration</a></li>
-            <li><a href="{% url 'aboutus:aboutus_list' %}">About Us</a></li>
+            <li><a href="{% url 'abouts:abouts_list' %}">About Us</a></li>
             <li><a href="{% url 'meals:meal_list' %}">Our Menu</a></li>
             <li><a href="{% url 'blog:post_list' %}">Our Blog</a></li>
             <li><a href="{% url 'reservation:reserve_table' %}">Reserve A Table</a></li>
@@ -52,7 +52,7 @@
         </div>
       </nav>
 
-      <header class="site-header">          
+      <header class="site-header">
         <div class="row align-items-center">
           <div class="col-5 col-md-3">
              <ul class="list-unstyled social">
@@ -73,9 +73,9 @@
           </div>
           </div>
         </div>
-       
+
       </header> <!-- site-header -->
-      
+
       {% block body %}
       {% endblock body %}
 
@@ -123,10 +123,13 @@
                   <h3>Contact Us</h3>
                   <p class="contact-email">info@yourdomain.com</p>
                   <p class="contact-phone">1-444-123-9829</p>
+
+
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </footer>
 
@@ -158,9 +161,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="{% static 'site_static/js/jquery.stellar.min.js' %}"></script>
 
     <script src="{% static 'site_static/js/aos.js' %}"></script>
-    
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74uJiULgl1JY0H2s&sensor=false"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 
     <script src="{% static 'site_static/js/main.js' %}"></script>
   </body>

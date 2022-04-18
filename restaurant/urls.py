@@ -26,8 +26,8 @@ urlpatterns = [
     path('meals/', include('meals.urls', namespace='abomealsuts')),
     path('reserve_table/', include('reservation.urls', namespace='reservation')),
     path('blog/', include('blog.urls', namespace='blog')),
-    path('abouts/', include('abouts.urls', namespace='aboutus')),
-    path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('abouts/', include('abouts.urls', namespace='abouts')),
+    path('accounts/', include('accounts.urls')),
     path('contact/', include('contact.urls', namespace='contact')),
     path('', include('home.urls', namespace='home')),
 ]

@@ -38,7 +38,7 @@ def post_detail(request, id):
         'all_tags': all_tags,
         'comment_form': comment_form
     }
-    return render(request, '', context)
+    return render(request, 'post_detail.html', context)
 
 def post_by_category(request, category):
     post_by_category = Post.objects.filter(category__category_name= category)
@@ -55,8 +55,3 @@ def post_by_tag(request, tag):
         'post_list':post_by_tag
     }
     return render(request,'post_list.html', context)
-
-
-
-
-

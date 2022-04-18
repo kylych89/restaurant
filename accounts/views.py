@@ -6,34 +6,29 @@ def register(request):
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
-        email = request.POST['email']
         username = request.POST['username']
-        password = request.POST['password']
+        email = request.POST['email']
+        password1 = request.POST['password1']
         password2 = request.POST['password2']
 
-        if password == password2:
+        if password1 == password2:
             if User.objects.filter(username=username).exists():
-                print('Username taken')
+                print('Username Taken')
             elif User.objects.filter(email=email).exists():
                 print('email taken')
             else:
                 user = User.objects.create_user(username=username,
                                                 first_name=first_name,
-                                                last_name=last_name,
                                                 email=email,
-                                                password=password)
-
-
+                                                password=password1,
+                                                last_name=last_name)
                 user.save()
-                print('User created')
-
+                print('User Created!')
         else:
-            print('Password not match')
+            print('password not match')
         return redirect('login')
     else:
         return render(request, 'register.html')
-
-
 
 
 def login(request):
@@ -46,20 +41,13 @@ def login(request):
         if user is not None:
             auth.login(request, user)
             return redirect('/')
-
         else:
-            print('wrong login')
+            print('wrong logins')
             return redirect('/')
-
     else:
         return render(request, 'login.html')
-
-
 
 
 def logout(request):
     auth.logout(request)
     return redirect('/')
-
-
-
